@@ -31,7 +31,7 @@ let discardPile = []
 let cardNumber;
 let drawCardP = 0;
 let turn = 0;
-let playernum = 4
+let playernum = 2
 let ChangeColourMode = false
 let turnClockWise = true
 let EndGame = false
@@ -184,94 +184,94 @@ function draw() {
             }
             text("player " + turn, -25, 0)
             pop()
-            if (turn == 0){
+            if (turn == 0) {
                 turn = 1
             }
-            else if(turn == 1){
+            else if (turn == 1) {
                 turn = 0
             }
         }
 
         else if (playernum == 3) {
             turn += 1
-            if (turn == 3){
+            if (turn == 3) {
                 turn = 0
             }
 
+            push()
+            translate(width / 4, height / 4)
+            for (i = 0; i < playersHands[turn].length; i++) {
                 push()
-                translate(width / 4, height / 4)
-                for (i = 0; i < playersHands[turn].length; i++) {
-                    push()
-                    rotateFrom = map(i, 0, playersHands[turn].length, 1.5, 3.2)
-                    rotate(rotateFrom)
-                    image(uno, 0, -100, cwidth, cheight, backCardx, backCardy, cBackWidth, cBackHeight)
-                    pop()
-                }
-                text("player " + turn, -25, 0)
+                rotateFrom = map(i, 0, playersHands[turn].length, 1.5, 3.2)
+                rotate(rotateFrom)
+                image(uno, 0, -100, cwidth, cheight, backCardx, backCardy, cBackWidth, cBackHeight)
                 pop()
-
-                if (turn == 0){
-                    turn = 2
-                }
-                else if(turn != 0){
-                    turn -=1
-                }
-
-                turn += 2
-
-                if (turn > 2){
-                    turn -= 3
-                }
-
-                push()
-                translate(width * (3 / 4), height / 4)
-                for (i = 0; i < playersHands[turn].length; i++) {
-                    push()
-                    rotateFrom = map(i, 0, playersHands[turn].length, 3.2, 4.9)
-                    rotate(rotateFrom)
-                    image(uno, 0, -100, cwidth, cheight, backCardx, backCardy, cBackWidth, cBackHeight)
-                    pop()
-                }
-                text("player " + turn, -25, 0)
-                pop()
-
-                if (turn < 2){
-                    turn += 1
-                }
-                else if (turn == 2){
-                    turn = 0
-                }
             }
-           
-            else if(playernum == 4){
-                turn += 1
-                if(turn == 4){
-                    turn = 0
-                }
-                push()
-                translate(width / 6, height / 2)
-                for (i = 0; i < playersHands[turn].length; i++) {
-                    push()
-                    rotateFrom = map(i, 0, playersHands[turn].length, 1, 2.7)
-                    rotate(rotateFrom)
-                    image(uno, 0, -100, cwidth, cheight, backCardx, backCardy, cBackWidth, cBackHeight)
-                    pop()
-                }
-                text("player " + turn, -25, 0)
-                pop()
-                if (turn == 0){
-                    turn = 3
-                }
-                else if(turn != 0){
-                    turn -= 1
-                }
+            text("player " + turn, -25, 0)
+            pop()
 
-                turn += 2
-                if(turn > 3){
-                    turn -= 4
-                }
-                
+            if (turn == 0) {
+                turn = 2
+            }
+            else if (turn != 0) {
+                turn -= 1
+            }
+
+            turn += 2
+
+            if (turn > 2) {
+                turn -= 3
+            }
+
+            push()
+            translate(width * (3 / 4), height / 4)
+            for (i = 0; i < playersHands[turn].length; i++) {
                 push()
+                rotateFrom = map(i, 0, playersHands[turn].length, 3.2, 4.9)
+                rotate(rotateFrom)
+                image(uno, 0, -100, cwidth, cheight, backCardx, backCardy, cBackWidth, cBackHeight)
+                pop()
+            }
+            text("player " + turn, -25, 0)
+            pop()
+
+            if (turn < 2) {
+                turn += 1
+            }
+            else if (turn == 2) {
+                turn = 0
+            }
+        }
+
+        else if (playernum == 4) {
+            turn += 1
+            if (turn == 4) {
+                turn = 0
+            }
+            push()
+            translate(width / 6, height / 2)
+            for (i = 0; i < playersHands[turn].length; i++) {
+                push()
+                rotateFrom = map(i, 0, playersHands[turn].length, 1, 2.7)
+                rotate(rotateFrom)
+                image(uno, 0, -100, cwidth, cheight, backCardx, backCardy, cBackWidth, cBackHeight)
+                pop()
+            }
+            text("player " + turn, -25, 0)
+            pop()
+            if (turn == 0) {
+                turn = 3
+            }
+            else if (turn != 0) {
+                turn -= 1
+            }
+
+            turn += 2
+            if (turn > 3) {
+                turn -= 4
+            }
+
+            push()
             translate(width / 2, (height / 8) - 50)
             for (i = 0; i < playersHands[turn].length; i++) {
                 push()
@@ -282,38 +282,38 @@ function draw() {
             }
             text("player " + turn, -25, 0)
             pop()
-            if (turn < 2){
+            if (turn < 2) {
                 turn += 2
             }
-            else if(turn >= 2){
+            else if (turn >= 2) {
                 turn -= 2
             }
 
             turn += 3
-            if (turn != 3){
+            if (turn != 3) {
                 turn -= 4
             }
             push()
-                translate(width * (3/4), height / 2)
-                for (i = 0; i < playersHands[turn].length; i++) {
-                    push()
-                    rotateFrom = map(i, 0, playersHands[turn].length, 3.8, 5.5)
-                    rotate(rotateFrom)
-                    image(uno, 0, -100, cwidth, cheight, backCardx, backCardy, cBackWidth, cBackHeight)
-                    pop()
-                }
-                text("player " + turn, -25, 0)
+            translate(width * (3 / 4), height / 2)
+            for (i = 0; i < playersHands[turn].length; i++) {
+                push()
+                rotateFrom = map(i, 0, playersHands[turn].length, 3.8, 5.5)
+                rotate(rotateFrom)
+                image(uno, 0, -100, cwidth, cheight, backCardx, backCardy, cBackWidth, cBackHeight)
                 pop()
+            }
+            text("player " + turn, -25, 0)
+            pop()
 
-                if (turn != 3){
-                    turn += 1
-                }
-                else if(turn == 3){
-                    turn -= 3
-                }
+            if (turn != 3) {
+                turn += 1
+            }
+            else if (turn == 3) {
+                turn -= 3
+            }
         }
-        }
-    
+    }
+
 
 
 
@@ -631,17 +631,28 @@ function cardEffect(effect) {
     }
 
     if (turnClockWise == true && ChangeColourMode == false) {
-        turn += 1
+        if (effect != 11) {
+            turn += 1
+        }
+        else if (effect == 11 && playernum != 2) {
+            turn -= 1
+        }
+
         if ((effect == 5 && discardPile[discardPile.length - 1][0] == 4) || effect == 10) {
             DrawPowerCard()
         }
     }
     else if (turnClockWise == false && ChangeColourMode == false) {
-        turn -= 1
+        if (effect != 11) {
+            turn -= 1
+        }
+        else if (effect == 11 && playernum != 2) {
+            turn -= 1
+        }
+
         if ((effect == 5 && discardPile[discardPile.length - 1][0] == 4) || effect == 10) {
             DrawPowerCard()
         }
-
     }
 }
 
